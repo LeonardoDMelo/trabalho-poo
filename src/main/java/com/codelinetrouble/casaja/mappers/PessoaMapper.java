@@ -12,7 +12,8 @@ public final class PessoaMapper implements IMapper<Pessoa, PessoaDto>{
 			dto.dataModificacao(),
 			dto.nome(),
 			dto.nascimento(),
-			dto.telefone());
+			dto.telefone()
+		);
 	}
 
 	@Override
@@ -23,6 +24,7 @@ public final class PessoaMapper implements IMapper<Pessoa, PessoaDto>{
 			entity.getDataModificacao(),
 			entity.getNome(),
 			entity.getNascimento(),
-			entity.getTelefone());
+			entity.getTelefone()
+		);
 	}
 }

@@ -34,7 +34,7 @@ public class PessoaView implements IView {
 			System.out.println("8) Atualizar uma pessoa por id;");
 			System.out.println("9) Sair do menu de pessoa;");
 
-			System.out.print("Digite sua opção: ");
+			System.out.print("\nDigite sua opção: ");
 			option = scanner.nextInt();
 
 			switch (option) {
@@ -74,9 +74,9 @@ public class PessoaView implements IView {
 
 		PessoaDto pessoaDto = new PessoaDto(null, null, null, nome, nascimento, telefone);
 		if (pessoaController.create(pessoaDto)) {
-			System.out.println(String.format("Pessoa criada: %s", pessoaDto.toString()));
+			System.out.println("Pessoa criada com sucesso");
 		} else {
-			System.out.println(String.format("Pessoa não pode ser criada: %s", pessoaDto.toString()));
+			System.out.println("Pessoa não pode ser criada");
 		}
 	}
 
@@ -221,9 +221,9 @@ public class PessoaView implements IView {
 
 		PessoaDto pessoaDto = new PessoaDto(id, null, null, nome, nascimento, telefone);
 		if (pessoaController.update(pessoaDto, id)) {
-			System.out.println(String.format("Pessoa atualizada com sucesso: %s", pessoaDto.toString()));
+			System.out.println("Pessoa atualizada com sucesso: %s");
 		} else {
-			System.out.println(String.format("Pessoa não pode ser atualizada: %s", pessoaDto.toString()));
+			System.out.println("Pessoa não pode ser atualizada: %s");
 		}
 	}
 

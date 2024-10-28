@@ -1,7 +1,8 @@
 package main.java.com.codelinetrouble.casaja.daos;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import main.java.com.codelinetrouble.casaja.daos.interfaces.IDao;
@@ -17,7 +18,7 @@ public class PessoaDao implements IDao<Pessoa, Integer>{
 	@Override
 	public Integer create(Pessoa entity) {
 		Integer counter = 0;
-		entity.setDataCriacao(LocalDate.now());
+		entity.setDataCriacao(LocalDateTime.now());
 		
 		if (pessoas.add(entity)) {
 			counter++;
@@ -31,7 +32,7 @@ public class PessoaDao implements IDao<Pessoa, Integer>{
 		Integer counter = 0;
 		
 		for(Pessoa entity: entities) {
-			entity.setDataCriacao(LocalDate.now());
+			entity.setDataCriacao(LocalDateTime.now());
 			if (pessoas.add(entity)) {
 				counter++;
 			}
@@ -57,6 +58,7 @@ public class PessoaDao implements IDao<Pessoa, Integer>{
 
 		for(Pessoa pessoa: pessoas) {
 			if (ids.contains(pessoa.getId())) {
+				ids.remove(pessoa.getId());
 				entities.add(pessoa);
 			}
 		}
@@ -87,10 +89,15 @@ public class PessoaDao implements IDao<Pessoa, Integer>{
 	@Override
 	public Integer remove(List<Integer> ids) {
 		Integer counter = 0;
-		
-		for(Pessoa entity : pessoas) {
-			if (ids.contains(entity.getId())) {
-				pessoas.remove(entity);
+
+		Iterator<Pessoa> it = pessoas.iterator();
+		while(it.hasNext()) {
+			Pessoa pessoa = it.next();
+
+			if (ids.contains(pessoa.getId())) {
+				ids.remove(pessoa.getId());
+				it.remove();
+
 				counter++;
 			}
 		}
@@ -101,7 +108,7 @@ public class PessoaDao implements IDao<Pessoa, Integer>{
 	@Override
 	public Integer update(Pessoa entity, Integer id) {
 		Integer counter = 0;
-		entity.setDataModificacao(LocalDate.now());
+		entity.setDataModificacao(LocalDateTime.now());
 
 		for(Pessoa pessoa: pessoas) {
 			if (pessoa.getId().equals(id)) {

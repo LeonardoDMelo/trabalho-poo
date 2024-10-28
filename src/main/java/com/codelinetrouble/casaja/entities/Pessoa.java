@@ -1,35 +1,43 @@
 package main.java.com.codelinetrouble.casaja.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import main.java.com.codelinetrouble.casaja.entities.abstracts.BaseEntity;
 
 public class Pessoa extends BaseEntity {
 	private static Integer serialId = 0;
 
-	private Integer id;
 	private String nome;
 	private LocalDate nascimento;
 	private String telefone;
 
-	public Pessoa(String nome, LocalDate nascimento, String telefone) {
+	public Pessoa(
+		String nome,
+		LocalDate nascimento,
+		String telefone) {
+
 		super();
 		this.id = Pessoa.serialId++;
-		
+
 		this.nome = nome;
 		this.nascimento = nascimento;
 		this.telefone = telefone;
 	}
 
-	public Pessoa(LocalDate dataCriacao, LocalDate dataModificacao, String nome, LocalDate nascimento, String telefone) {
+	public Pessoa(
+		LocalDateTime dataCriacao,
+		LocalDateTime dataModificacao,
+		String nome,
+		LocalDate nascimento,
+		String telefone) {
+
 		super(dataCriacao, dataModificacao);
 		this.id = Pessoa.serialId++;
-		
+
 		this.nome = nome;
 		this.nascimento = nascimento;
 		this.telefone = telefone;
-	}
-
-	public Integer getId() {
-		return id;
 	}
 
 	public String getNome() {

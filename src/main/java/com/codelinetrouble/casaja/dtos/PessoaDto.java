@@ -1,29 +1,30 @@
 package main.java.com.codelinetrouble.casaja.dtos;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record PessoaDto(
 	Integer id,
-	LocalDate dataCriacao,
-	LocalDate dataModificacao,
+	LocalDateTime dataCriacao,
+	LocalDateTime dataModificacao,
 	String nome,
 	LocalDate nascimento,
 	String telefone) {
 
 	@Override
 	public String toString() {
-		return "'Pessoa': { 'id': "
+		return "{ 'id': '"
 			+ id
-			+ ", 'dataCriacao': "
+			+ "', 'dataCriacao': '"
 			+ dataCriacao
-			+ ", 'dataModificacao': "
+			+ "', 'dataModificacao': '"
 			+ dataModificacao
-			+ ", 'nome': "
+			+ "', 'nome': '"
 			+ nome
-			+ ", 'nascimento':"
+			+ "', 'nascimento': '"
 			+ nascimento
-			+ ", 'telefone':"
+			+ "', 'telefone': '"
 			+ telefone
-			+ "}";
+			+ "'}";
 	}
 }
