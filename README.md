@@ -46,4 +46,4 @@ Casa Já é um projeto de gerenciamento de Eventos de Casamento, com cadastro, l
 - Orientação à Objetos
 - Arquitetura Monolítica em Camadas
 - Git e GiHub
-- PostgreSQL
+
